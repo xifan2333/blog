@@ -44,7 +44,7 @@ jobs:
           destination-repo: 'git@gitee.com:xifan233/xifan233.gitee.io.git'
 
   sync:
-    needs: [blog-deploy,git-mirror]
+    needs: [deploy,mirror]
     runs-on: ubuntu-latest
     steps:
       - name: Sync to Gitee
