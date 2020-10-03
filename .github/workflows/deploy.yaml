@@ -9,8 +9,10 @@ on:
     create:
       branches:
         - main
+
 jobs:
-  blog-deploy:
+  deploy:
+    - name: deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -30,9 +32,10 @@ jobs:
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: public # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
-    jobs:
-      git-mirror:
-        runs-on: ubuntu-latest
+      
+      mirror:
+        - name: mirror
+        needs: blog-deploy
         steps:
           - uses: wearerequired/git-mirror-action@v1
             env:
@@ -40,9 +43,10 @@ jobs:
             with:
               source-repo: 'git@github.com:xifan2333/xifan2333.github.io.git'
               destination-repo: 'git@gitee.com:xifan233/xifan233.gitee.io.git'
-            need: blog-deploy
-    jobs:
-      blog-sync:
+            
+      sync:
+        - name: sync
+        needs: [blog-deploy,git-mirror]
         runs-on: ubuntu-latest
         steps:
         - name: Sync to Gitee
@@ -60,4 +64,4 @@ jobs:
               gitee-username: xifan233
               gitee-password: ${{ secrets.GITEE_PASSWORD }}
               gitee-repo: xifan233/xifan233
-          need: [blog-deploy,git-mirror]
+          
