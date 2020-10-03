@@ -30,34 +30,34 @@ jobs:
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: public # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
-
-    git-mirror:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: wearerequired/git-mirror-action@v1
+    jobs:
+      git-mirror:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: wearerequired/git-mirror-action@v1
+            env:
+              SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            with:
+              source-repo: 'git@github.com:xifan2333/xifan2333.github.io.git'
+              destination-repo: 'git@gitee.com:xifan233/xifan233.gitee.io.git'
+            need: blog-deploy
+    jobs:
+      blog-sync:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Sync to Gitee
+          uses: wearerequired/git-mirror-action@master
           env:
-            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+              SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
           with:
-            source-repo: 'git@github.com:xifan2333/xifan2333.github.io.git'
-            destination-repo: 'git@gitee.com:xifan233/xifan233.gitee.io.git'
-          need: blog-deploy
+              source-repo: "git@github.com:xifan2333/xifan2333.github.io.git"
+              destination-repo: "git@gitee.com:xifan233/xifan233.git"
+          need: deploy
 
-    blog-sync:
-      runs-on: ubuntu-latest
-      steps:
-      - name: Sync to Gitee
-        uses: wearerequired/git-mirror-action@master
-        env:
-            SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-        with:
-            source-repo: "git@github.com:xifan2333/xifan2333.github.io.git"
-            destination-repo: "git@gitee.com:xifan233/xifan233.git"
-        need: deploy
-
-      - name: Build Gitee Pages
-        uses: yanglbme/gitee-pages-action@master
-        with:
-            gitee-username: xifan233
-            gitee-password: ${{ secrets.GITEE_PASSWORD }}
-            gitee-repo: xifan233/xifan233
-        need: [blog-deploy,git-mirror]
+        - name: Build Gitee Pages
+          uses: yanglbme/gitee-pages-action@master
+          with:
+              gitee-username: xifan233
+              gitee-password: ${{ secrets.GITEE_PASSWORD }}
+              gitee-repo: xifan233/xifan233
+          need: [blog-deploy,git-mirror]
