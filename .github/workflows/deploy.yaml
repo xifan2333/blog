@@ -10,7 +10,7 @@ on:
       branches:
         - main
 jobs:
-  deploy:
+  blog-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -31,7 +31,7 @@ jobs:
           FOLDER: public # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
     
-    mirror:
+    git-mirror:
       runs-on: ubuntu-latest
       steps:
         - uses: wearerequired/git-mirror-action@v1
@@ -40,7 +40,9 @@ jobs:
           with:
             source-repo: 'git@github.com:xifan2333/xifan2333.github.io.git'
             destination-repo: 'git@gitee.com:xifan233/xifan233.gitee.io.git'
-    sync:
+          need: blog-deploy
+          
+    blog-sync:
       runs-on: ubuntu-latest
       steps:
       - name: Sync to Gitee
@@ -58,4 +60,4 @@ jobs:
             gitee-username: xifan233
             gitee-password: ${{ secrets.GITEE_PASSWORD }}
             gitee-repo: xifan233/xifan233
-        need: [deploy,mirror]
+        need: [blog-deploy,git-mirror]
