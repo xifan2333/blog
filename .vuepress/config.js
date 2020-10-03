@@ -115,7 +115,6 @@ module.exports = {
           cover: '/audio/1.jpg'
         },
       ],
-      autoShrink:true
     },
     "vuepress-plugin-code-copy": {
       color: "#7e8078"
