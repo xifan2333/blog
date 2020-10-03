@@ -1,0 +1,52 @@
+{
+	
+	"blog-init": {
+		"scope": "markdown",
+		"prefix": "init",
+		"body": [
+			"---",
+			"title: $1",
+			"date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+			"categories:",
+			"- $2",
+			"tags:",
+			"- $3",
+			"---"
+		],
+		"description": "init blog"
+	},
+	"line chart": {
+		"scope": "markdown",
+		"prefix": "line",
+		"body": [
+			"<line-chart style=\" box-sizing: border-box; box-shadow:0px 0px 10px 5px rgba(0, 0, 0, 0.1);border-radius:5px; margin:1.75em auto;\" :data=\"{'$1':$2}\"></line-chart>"
+		],
+		"description": "line chart"
+	},
+	"pie-chart": {
+		"scope": "markdown",
+		"prefix": "pie",
+		"body": [
+			"<pie-chart style=\" box-sizing: border-box; box-shadow:0px 0px 10px 5px rgba(0, 0, 0, 0.1);border-radius:5px; margin:1.75em auto;\" :data=\"[['$1',$2]]\"></pie-chart>"
+		],
+		"description": "pie chart"
+	},
+	"colmn-chart": {
+		"scope": "markdown",
+		"prefix": "colmn",
+		"body": [
+			"<colmn-chart style=\" box-sizing: border-box; box-shadow:0px 0px 10px 5px rgba(0, 0, 0, 0.1);border-radius:5px; margin:1.75em auto;\" :data=\"[['$1',$2]]\"></colmn-chart>"
+		],
+		"description": "colmn chart"
+	},
+	"bar-chart": {
+		"scope": "markdown",
+		"prefix": "bar",
+		"body": [
+			"<bar-chart style=\" box-sizing: border-box; box-shadow:0px 0px 10px 5px rgba(0, 0, 0, 0.1);border-radius:5px; margin:1.75em auto;\" :data=\"[['$1',$2]]\"></bar-chart>"
+		],
+		"description": "colmn chart"
+	},
+
+
+}
