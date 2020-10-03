@@ -1,18 +1,17 @@
-- name: Build and Deploy
-  
-  on:
-    push:
-      branches:
-        - main
-    delete:
-      branches:
-        - main
-    create:
-      branches:
-        - main
-  jobs:
-    deploy:
-    - name: deploy
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  delete:
+    branches:
+      - main
+  create:
+    branches:
+      - main
+jobs:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -33,32 +32,33 @@
           FOLDER: public
           CLEAN: true 
 
-    mirror:
-      - name: mirror
-        needs: blog-deploy
-        steps:
-          - uses: wearerequired/git-mirror-action@v1
-            env:
-              SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-            with:
-              source-repo: 'git@github.com:xifan2333/xifan2333.github.io.git'
-              destination-repo: 'git@gitee.com:xifan233/xifan233.gitee.io.git'           
-    sync:
-      needs: [blog-deploy,git-mirror]
-      runs-on: ubuntu-latest
-      steps:
-        - name: Sync to Gitee
-          uses: wearerequired/git-mirror-action@master
-          env:
-            SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-          with:
-            source-repo: "git@github.com:xifan2333/xifan2333.github.io.git"
-            destination-repo: "git@gitee.com:xifan233/xifan233.git"
+  mirror:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        with:
+          source-repo: 'git@github.com:xifan2333/xifan2333.github.io.git'
+          destination-repo: 'git@gitee.com:xifan233/xifan233.gitee.io.git'
 
-        - name: Build Gitee Pages
-          uses: yanglbme/gitee-pages-action@master
-          with:
-            gitee-username: xifan233
-            gitee-password: ${{ secrets.GITEE_PASSWORD }}
-            gitee-repo: xifan233/xifan233
-        
+  sync:
+    needs: [blog-deploy,git-mirror]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@master
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+        with:
+          source-repo: "git@github.com:xifan2333/xifan2333.github.io.git"
+          destination-repo: "git@gitee.com:xifan233/xifan233.git"
+
+      - name: Build Gitee Pages
+        uses: yanglbme/gitee-pages-action@master
+        with:
+          gitee-username: xifan233
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          gitee-repo: xifan233/xifan233
+    
