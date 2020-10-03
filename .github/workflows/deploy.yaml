@@ -1,8 +1,14 @@
 name: Build and Deploy
 on:
-  [push, delete, create]:
-    branches:
-      - main
+    push:
+      branches:
+        - main
+    delete:
+      branches:
+        - main
+    create:
+      branches:
+        - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
