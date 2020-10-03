@@ -30,7 +30,7 @@ jobs:
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: public # The folder the action should deploy.
           CLEAN: true # Automatically remove deleted files from the deploy branch
-    
+
     git-mirror:
       runs-on: ubuntu-latest
       steps:
@@ -41,7 +41,7 @@ jobs:
             source-repo: 'git@github.com:xifan2333/xifan2333.github.io.git'
             destination-repo: 'git@gitee.com:xifan233/xifan233.gitee.io.git'
           need: blog-deploy
-          
+
     blog-sync:
       runs-on: ubuntu-latest
       steps:
