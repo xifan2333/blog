@@ -41,7 +41,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         with:
           source-repo: 'git@github.com:xifan2333/xifan2333.github.io.git'
-          destination-repo: 'git@gitee.com:xifan233/xifan233.gitee.io.git'
+          destination-repo: 'git@gitee.com:xifan233/xifan233.git'
 
   sync:
     needs: [deploy,mirror]
