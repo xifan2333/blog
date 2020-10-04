@@ -47,6 +47,77 @@
 		],
 		"description": "colmn chart"
 	},
+	"tip": {
+		"scope": "markdown",
+		"prefix": "tip $1",
+		"body": [
+			":::tip",
+			"$2",
+			":::",
+		],
+		"description": "tip"
+	},
+	"warning": {
+		"scope": "markdown",
+		"prefix": "warning",
+		"body": [
+			":::warning $1",
+			"$2",
+			":::",
+		],
+		"description": "warning"
+	},
+	"danger": {
+		"scope": "markdown",
+		"prefix": "danger",
+		"body": [
+			":::danger $1",
+			"$2",
+			":::",
+		],
+		"description": "danger"
+	},
+	
+	"theorem": {
+		"scope": "markdown",
+		"prefix": "theorem",
+		"body": [
+			":::theorem $1",
+			"$2",
+			":::",
+		],
+		"description": "theorem"
+	},
 
-
+	"right": {
+		"scope": "markdown",
+		"prefix": "right",
+		"body": [
+			":::right",
+			"$1",
+			":::",
+		],
+		"description": "right"
+	},
+	"details": {
+		"scope": "markdown",
+		"prefix": "details",
+		"body": [
+			":::details",
+			"$1",
+			":::",
+		],
+		"description": "details"
+	},
+	"music": {
+		"scope": "markdown",
+		"prefix": "music",
+		"body": [
+			"<Meting server='netease'",
+			"\ttype='song'",
+			"\tmid='$1'",
+			"\t:lrc-type='3'/>",
+		],
+		"description": "music"
+	},
 }

@@ -11,13 +11,14 @@
     "vuepress-theme-reco": "1.5.7"
   },
   "dependencies": {
-    "@vuepress-reco/vuepress-plugin-bgm-player": "^1.1.3",
     "@vuepress/plugin-register-components": "^1.6.0",
     "chart.js": "^2.9.3",
     "markdown-it-mathjax3": "^2.2.0",
+    "markdown-it-plantuml-ex": "^1.0.0",
     "vue-chartkick": "^0.6.1",
     "vue-class-component": "^7.2.3",
-    "vuepress-plugin-code-copy": "^1.0.6"
+    "vuepress-plugin-code-copy": "^1.0.6",
+    "vuepress-plugin-meting": "^0.1.1"
   },
   "description": ""
 }
