@@ -33,7 +33,7 @@ jobs:
           CLEAN: true 
 
   sync:
-    needs: [deploy,mirror]
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - name: Sync to Gitee
