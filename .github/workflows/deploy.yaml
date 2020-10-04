@@ -50,4 +50,6 @@ jobs:
           gitee-username: xifan233
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
           gitee-repo: xifan233/xifan233
+          branch: gh-pages
+          https: true
     
