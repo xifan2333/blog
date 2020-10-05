@@ -33,7 +33,7 @@ npx @vuepress-reco/theme-cli init
 
 运行完成后，按照提示依次键入信息。
 
-![vuepress博客搭建指南-2020-10-05-13-43-43](http://images.xifan.fun/vuepress博客搭建指南-2020-10-05-13-43-43.png)
+![vuepress博客搭建指南-2020-10-05-13-43-43](https://images.xifan.fun/vuepress博客搭建指南-2020-10-05-13-43-43.png)
 
 之后进入新创建的博客目录,安装依赖项
 
