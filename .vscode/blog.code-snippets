@@ -49,9 +49,9 @@
 	},
 	"tip": {
 		"scope": "markdown",
-		"prefix": "tip $1",
+		"prefix": "tip ",
 		"body": [
-			":::tip",
+			":::tip $1",
 			"$2",
 			":::",
 		],
