@@ -5,6 +5,7 @@ categories:
 - 👨‍💻 编程
 tags:
 - ES6
+- JavaScript
 ---
 
 ## let const
@@ -429,4 +430,3 @@ console.log(map);
 ---
 
 剩余知识点还有 `proxy` 、`promise` 、`class` 、`import/export` , `proxy` 与 装饰器的区别还是不够清晰，`class` 及 `import/export` 在许多项目中都有使用相对比较熟悉，`promise` 的异步处理，后面结合 `async/await` 再写一篇。
-
