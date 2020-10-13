@@ -49,7 +49,7 @@ tags:
 
 ## 使用 plantuml 画图
 
-```plaintext
+```text
 @startuml
 class Person {
   +name : String
