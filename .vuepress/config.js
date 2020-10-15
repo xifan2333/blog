@@ -32,16 +32,16 @@ module.exports = {
                 link: "/timeline/",
                 icon: "reco-date"
             },
-            // {
-            //   text: "Docs",
-            //   icon: "reco-message",
-            //   items: [
-            //     {
-            //       text: "vuepress-reco",
-            //       link: "/docs/theme-reco/"
-            //     }
-            //   ]
-            // },
+            {
+              text: "文档",
+              icon: "reco-message",
+              items: [
+                {
+                  text: "🎤 单口喜剧入门指南",
+                  link: "/docs/stand-up-comedy/"
+                }
+              ]
+            },
             {
                 text: "关于我",
                 icon: "reco-account",
@@ -54,14 +54,13 @@ module.exports = {
                 ]
             }
         ],
-        // sidebar: {
-        //   "/docs/theme-reco/": [
-        //     "",
-        //     "theme",
-        //     "plugin",
-        //     "api"
-        //   ],
-        // },
+        sidebar: {
+          "/docs/stand-up-comedy/": [
+            "",
+            "principle",
+            "books",
+          ],
+        },
         subSidebar: 'auto',
         valineConfig: {
             appId: 'gXvVVABzq7pP01kmiA2ueIeR-gzGzoHsz',
