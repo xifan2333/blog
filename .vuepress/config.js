@@ -58,6 +58,7 @@ module.exports = {
           "/docs/stand-up-comedy/": [
             "",
             "principle",
+            "structure",
             "books",
           ],
         },
