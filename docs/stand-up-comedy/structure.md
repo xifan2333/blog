@@ -64,7 +64,7 @@ date: 2020-10-15
 ### 案例教学
 
 <video controls>
-    <source src="/videos/%E4%B9%B0%E8%8D%AF-%E5%91%A8%E5%A5%87%E5%A2%A8.mp4" type="video/mp4">
+    <source src="https://xifan.fun/videos/%E4%B9%B0%E8%8D%AF-%E5%91%A8%E5%A5%87%E5%A2%A8.mp4" type="video/mp4">
 </video>
 
 :::tip 结构拆解
@@ -86,7 +86,7 @@ date: 2020-10-15
 ### 案例教学
 
 <video controls>
-    <source src="/videos/%E9%81%97%E6%86%BE-%E7%8E%8B%E5%8B%89.mp4" type="video/mp4">
+    <source src="https://xifan.fun/videos/%E9%81%97%E6%86%BE-%E7%8E%8B%E5%8B%89.mp4" type="video/mp4">
 </video>
 
 ## 总结
